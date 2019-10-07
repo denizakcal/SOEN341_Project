@@ -9,7 +9,7 @@ app.get('/',function(req,res){
   res.sendFile("/home/deniz/Dropbox/SOEN341/SOEN341_Project/SOEN341_Project/src/index.html");
 });
 app.post('/login',function(req,res){
-  var user_name=req.body.user;
+  var user_name=req.body.username;
   var password=req.body.password;
   console.log("User name = "+user_name+", password is "+password);
   res.end("yes");
