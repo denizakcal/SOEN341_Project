@@ -7,7 +7,7 @@
       function processFormData() {
         $(document).ready(function(){
           var user,pass;
-          $("#submit").click(function(){
+          $("#submitHtmlId").click(function(){
             user=$("#usernameHtmlId").val();
             pass=$("#passwordHtmlId").val();
             $.post("http://localhost:3000/login",{username: user, password: pass}, function(data){
@@ -25,6 +25,6 @@
     <h1>Hello people !</h1>
     <input type="TEXT" id="usernameHtmlId" size="40"><br>
     <input type="password" id="passwordHtmlId" size="40"><br>
-    <input type="button" id="submit" value="Submit">
+    <input type="button" id="submitHtmlId" value="Submit">
   </body>
 </html>
