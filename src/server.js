@@ -57,7 +57,7 @@ function getSqlResultTwoServer(callback) {
   });
 }
 
-function addUserServerSide(passedFirstName, passedLastName) {
+function registerUserServerSide(passedAccountName, passedUserAccountPassword, passedFirstName, passedLastName) {
   const pg = require('pg');
   const pool = new pg.Pool({
   user: 'deniz',
@@ -66,7 +66,7 @@ function addUserServerSide(passedFirstName, passedLastName) {
   password: 'cncrd',
   port: '5432'});
     console.log("hilo");
-    pool.query(`INSERT INTO Users(firstName,lastName) VALUES('${passedFirstName}','${passedLastName}')`, (theError, theResult) => {
+    pool.query(`INSERT INTO Users(userAccountName,userAccountPassword,firstName,lastName) VALUES('${passedAccountName}', '${passedUserAccountPassword}', '${passedFirstName}', '${passedLastName}')`, (theError, theResult) => {
       //console.log(theError, theResult);
       
       //console.log(theError,theResult['rows']);
@@ -102,7 +102,7 @@ app.post('/db2',function(req,res){
   //res.end('db2_yo');
 });
 
-app.post('/addUser',function(req,res){
+app.post('/registerUser',function(req,res){
   /*addUserServer((dataFromCallback) => {
     //this code is the actual callback
     //console.log('yo', dataFromCallback)
@@ -111,7 +111,7 @@ app.post('/addUser',function(req,res){
   //var user_name=req.body.username;
   //var password=req.body.password;
   //console.log("User name = "+user_name+", password is "+password);
-  addUserServerSide(req.body.firstName, req.body.lastName);
+  registerUserServerSide(req.body.userAccountName, req.body.userAccountPassword, req.body.firstName, req.body.lastName);
   //res.end('db2_yo');
 });
 

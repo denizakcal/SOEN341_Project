@@ -68,17 +68,17 @@
       yo1();
       yo2();
 
-      function addUserClientSide(passedFirstName, passedLastName) {
+      function registerUserClientSide(passedUserAccountName,passedUserAccountPassword,passedFirstName,passedLastName) {
         $(document).ready(function(){
-          $.post("http://localhost:3000/addUser",
-            {firstName: passedFirstName, lastName: passedLastName}, /*There is no need to pass a userId because it is automatically incremented.*/
+          $.post("http://localhost:3000/registerUser",
+            {userAccountName: passedUserAccountName, userAccountPassword: passedUserAccountPassword, firstName: passedFirstName, lastName: passedLastName}, /*There is no need to pass a userId because it is automatically incremented.*/
             function(data){}
           );
         });
       }
 
-      var someFirstName = 'Bugs', someLastName = 'Bunny';
-      addUserClientSide(someFirstName,someLastName);
+      var someUserAccountName = 'bugsBunny2019', someUserAccountPassword = 'password123', someFirstName = 'Bugs', someLastName = 'Bunny';
+      registerUserClientSide(someUserAccountName,someUserAccountPassword,someFirstName,someLastName);
     </script>
   </head>
   <body>
