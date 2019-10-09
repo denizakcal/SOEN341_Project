@@ -4,7 +4,13 @@
 
 -- CREATE TABLE IF NOT EXISTS userChannelCombinations(channelId INT, userId INT, PRIMARY KEY(channelId, userId));
 
-CREATE TABLE IF NOT EXISTS Users(userId SERIAL /*INT*/, userAccountName TEXT, firstName TEXT, lastName TEXT, PRIMARY KEY(userId));
+DROP TABLE IF EXISTS Users;
+
+DROP TABLE IF EXISTS Messages;
+
+DROP TABLE IF EXISTS Channels;
+
+CREATE TABLE IF NOT EXISTS Users(userId SERIAL /*INT*/, userAccountName TEXT, userAccountPassword TEXT, firstName TEXT, lastName TEXT, PRIMARY KEY(userId)); -- Make password storing better later.
 
 CREATE TABLE IF NOT EXISTS Messages(messageContent TEXT, timestamp TIMESTAMP, messageNumberInChannel INT, userIdOfAuthorOfThatMessage INT, channelId INT, PRIMARY KEY(messageNumberInChannel, userIdOfAuthorOfThatMessage, channelId));
 
