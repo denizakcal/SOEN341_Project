@@ -3,7 +3,7 @@
     <title>Simple login</title>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script>
-      processFormData();
+      /*processFormData();
       function processFormData() {
         $(document).ready(function(){
           var user,pass;
@@ -18,7 +18,54 @@
             });
           });
         });
+      }*/
+
+      
+      function yo1() {
+        $(document).ready(function(){
+            var user,pass;
+            $("#submitHtmlId").click(function(){
+              user=$("#usernameHtmlId").val();
+              pass=$("#passwordHtmlId").val();
+              $.post("http://localhost:3000/login",{username: user, password: pass}, function(data){
+                /*if(data==='yes')
+                  {
+                    alert("login success");
+                  }*/
+                  alert(data);
+              });
+            });
+          });
       }
+
+      function yo2() {
+        $(document).ready(function(){
+            var user,pass;
+            /* $("#submitHtmlId").click(function(){
+              user=$("#usernameHtmlId").val();
+              pass=$("#passwordHtmlId").val();
+              $.post("http://localhost:3000/db2",{username: user, password: pass}, function(data){
+                // if(data==='yes')
+                // {
+                //   alert("login success");
+                // }
+                // alert(data);
+              });
+            });*/
+
+          
+            $.post("http://localhost:3000/db2",{username: user, password: pass}, function(data){
+              // if(data==='yes')
+              // {
+              //   alert("login success");
+              // }
+              alert(data);
+            });
+          });
+      }
+
+      yo1();
+      yo2();
     </script>
   </head>
   <body>
