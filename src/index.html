@@ -1,27 +1,115 @@
 <html>
   <head>
     <title>Simple login</title>
+      
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <link rel="stylesheet" href="style.css"> 
     <script>
-      $(document).ready(function(){
-        var user,pass;
-        $("#submit").click(function(){
-          user=$("#user").val();
-          pass=$("#password").val();
-          $.post("http://localhost:3000/login",{username: user,password: pass}, function(data){
-            if(data==='yes')
-              {
-                alert("login success");
-              }
+      /*processFormData();
+      function processFormData() {
+        $(document).ready(function(){
+          var user,pass;
+          $("#submitHtmlId").click(function(){
+            user=$("#usernameHtmlId").val();
+            pass=$("#passwordHtmlId").val();
+            $.post("http://localhost:3000/login",{username: user, password: pass}, function(data){
+              if(data==='yes')
+                {
+                  alert("login success");
+                }
+            });
           });
         });
-      });
+      }*/
+
+      
+      function yo1() {
+        $(document).ready(function(){
+            var user,pass;
+            $("#submitHtmlId").click(function(){
+              user=$("#usernameHtmlId").val();
+              pass=$("#passwordHtmlId").val();
+              $.post("http://localhost:3000/login",{username: user, password: pass}, function(data){
+                /*if(data==='yes')
+                  {
+                    alert("login success");
+                  }*/
+                  alert(data);
+              });
+            });
+          });
+      }
+
+      function yo2() {
+        $(document).ready(function(){
+            var user,pass;
+            /* $("#submitHtmlId").click(function(){
+              user=$("#usernameHtmlId").val();
+              pass=$("#passwordHtmlId").val();
+              $.post("http://localhost:3000/db2",{username: user, password: pass}, function(data){
+                // if(data==='yes')
+                // {
+                //   alert("login success");
+                // }
+                // alert(data);
+              });
+            });*/
+
+          
+            $.post("http://localhost:3000/db2",{username: user, password: pass}, function(data){
+              // if(data==='yes')
+              // {
+              //   alert("login success");
+              // }
+              alert(data);
+            });
+          });
+      }
+
+      yo1();
+      yo2();
+
+      function addUserClientSide(passedFirstName, passedLastName) {
+        $(document).ready(function(){
+          $.post("http://localhost:3000/addUser",
+            {firstName: passedFirstName, lastName: passedLastName}, /*There is no need to pass a userId because it is automatically incremented.*/
+            function(data){}
+          );
+        });
+      }
+
+      var someFirstName = 'Bugs', someLastName = 'Bunny';
+      addUserClientSide(someFirstName,someLastName);
     </script>
   </head>
   <body>
-    <h1>Hello people !</h1>
-    <input type="TEXT" id="user" size="40"><br>
-    <input type="password" id="password" size="40"><br>
-    <input type="button" id="submit" value="Submit">
-  </body>
+<!-- Oussama's modification-->
+<header>
+  <div class="title-head"></div><h2>NotSlack</h2>/<div>
+</header>
+<div class="login-page">
+<div class="form">
+    <form class ="register-form">
+    <input type="text" id="username" name="username" placeholder="UserName"/>
+    <input type="password" id="pwd" name="pwd" placeholder="Password"/>
+    <button>Create Account</button>
+        <p class="message">Already have an account? <a href="#">Sign In</a></p>
+    </form>
+    
+    <form class="login-form">
+    <input type="text" placeholder="Username"/>
+    <input type="password" placeholder="Password"/>
+        <button>Login</button>
+        <p class="message"> Don't have an account? <a href="#">Sign Up</a></p>
+    </form>
+</div>
+</div>
+  <script src='http://code.jquery.com/jquery-3.2.1.min.js'></script>   
+    <script>
+    $('.message a').click(function(){
+    $('form').animate({height:"toggle", opacity: "toggle"},"slow");    
+    });
+    </script>
+
+</body>
 </html>

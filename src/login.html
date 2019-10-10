@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>NotSlack</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css"> 
+    
+</head>
+<body>
+<!-- Oussama's modification-->
+<header>
+  <h2>NotSlack</h2>
+</header>
+<div class="login-page">
+<div class="form">
+    <form class ="register-form">
+    <input type="text" id="username" name="username" placeholder="UserName"/>
+    <input type="password" id="pwd" name="pwd" placeholder="Password"/>
+    <button>Create Account</button>
+        <p class="message">Already have an account? <a href="#">Sign In</a></p>
+    </form>
+    
+    <form class="login-form">
+    <input type="text" placeholder="Username"/>
+    <input type="password" placeholder="Password"/>
+        <button>Login</button>
+        <p class="message"> Don't have an account? <a href="#">Sign Up</a></p>
+    </form>
+</div>
+</div>
+  <script src='http://code.jquery.com/jquery-3.2.1.min.js'></script>   
+    <script>
+    $('.message a').click(function(){
+    $('form').animate({height:"toggle", opacity: "toggle"},"slow");    
+    });
+    </script>
+
+</body>
+</html>
