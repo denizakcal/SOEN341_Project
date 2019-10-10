@@ -65,20 +65,43 @@ function registerUserServerSide(passedAccountName, passedUserAccountPassword, pa
   database: 'soen341db',
   password: 'cncrd',
   port: '5432'});
-    console.log("hilo");
-    var idOfRegisteredUser = pool.query(`INSERT INTO Users(userAccountName,userAccountPassword,firstName,lastName) VALUES('${passedAccountName}', '${passedUserAccountPassword}', '${passedFirstName}', '${passedLastName}')`, (theError, theResult) => {
+  
+  console.log("hilo");
+  //var idOfRegisteredUser = pool.query(`INSERT INTO Users(userAccountName,userAccountPassword,firstName,lastName) VALUES('${passedAccountName}', '${passedUserAccountPassword}', '${passedFirstName}', '${passedLastName}')`, (theError, theResult) => {
+  var idOfRegisteredUser = '-1';
+  pool.query(`INSERT INTO Users(userAccountName,userAccountPassword,firstName,lastName) VALUES('${passedAccountName}', '${passedUserAccountPassword}', '${passedFirstName}', '${passedLastName}')`, (theError, theResult) => {
+    //idOfRegisteredUser = theResult.rows;
       //console.log(theError, theResult);
-      
-      //console.log(theError,theResult['rows']);
-      //console.log(theError,theResult['rows'][0]);
-      //var dataToReturn = theResult['rows'][0]['n'];
-      //console.log("dataToReturn: " + dataToReturn); // This works properly.
-      //var idOfRegisteredUser = pool.query("");
-      pool.end();
-      // also need to handle if there are errors, this assumes success
-      //var dataToReturn = "somePlaceholderValueForNow";
-      alert("idOfRegisteredUser" + idOfRegisteredUser);
-      callback(idOfRegisteredUser);
+    
+    //console.log(theError,theResult['rows']);
+    //console.log(theError,theResult['rows'][0]);
+    //var dataToReturn = theResult['rows'][0]['n'];
+    //console.log("dataToReturn: " + dataToReturn); // This works properly.
+    //var idOfRegisteredUser = pool.query("");
+    //pool.end();
+    // also need to handle if there are errors, this assumes success
+    //var dataToReturn = "somePlaceholderValueForNow";
+    //alert("idOfRegisteredUser" + idOfRegisteredUser);
+    //callback(idOfRegisteredUser);
+  });
+
+  pool.query('SELECT COUNT(userId) FROM Users', (theError, theResult) => {
+    //idOfRegisteredUser = theResult.rows.count;
+    idOfRegisteredUser = Number(theResult.rows[0].count) + 1;
+    //idOfRegisteredUser = theResult.rows[0].count + 1;
+    //console.log("plane2: " + idOfRegisteredUser);
+      //console.log(theError, theResult);
+    
+    //console.log(theError,theResult['rows']);
+    //console.log(theError,theResult['rows'][0]);
+    //var dataToReturn = theResult['rows'][0]['n'];
+    //console.log("dataToReturn: " + dataToReturn); // This works properly.
+    //var idOfRegisteredUser = pool.query("");
+    pool.end();
+    // also need to handle if there are errors, this assumes success
+    //var dataToReturn = "somePlaceholderValueForNow";
+    //alert("idOfRegisteredUser" + idOfRegisteredUser);
+    callback(idOfRegisteredUser);
   });
 }
 
@@ -113,14 +136,15 @@ app.post('/registerUser',function(req,res) {
   //var user_name=req.body.username;
   //var password=req.body.password;
   //console.log("User name = "+user_name+", password is "+password);
-  getSqlResultOneServer((dataFromCallback) => {
+  /*registerUserServerSide((dataFromCallback) => {
     //this code is the actual callback
     //console.log('yo', dataFromCallback)
     res.end(`${dataFromCallback}`);
-  })
+  })*/
   registerUserServerSide(req.body.userAccountName, req.body.userAccountPassword, req.body.firstName, req.body.lastName, (dataFromCallback) => {
     //this code is the actual callback
     //console.log('yo', dataFromCallback)
+    console.log("it?: ", dataFromCallback);
     res.end(`${dataFromCallback}`);
   });
   //res.end('db2_yo');
