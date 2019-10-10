@@ -5,7 +5,7 @@ import SendMessageForm from './components/SendMessageForm'
 import RoomList from './components/RoomList'
 import NewRoomForm from './components/NewRoomForm'
 
-import { tokenUrl, instanceLocator } from './config'
+//import { tokenUrl, instanceLocator } from './config'
 
 class App extends React.Component {
     
@@ -25,10 +25,10 @@ class App extends React.Component {
     
     componentDidMount() {
         const chatManager = new Chatkit.ChatManager({
-            instanceLocator,
+            instanceLocator: 'v1:us1:bb4d357a-bfef-46f3-bddb-4b90bdb33a68',
             userId: 'admin',
             tokenProvider: new Chatkit.TokenProvider({
-                url: "https://us1.pusherplatform.io/services/chatkit_token_provider/v1/bb4d357a-bfef-46f3-bddb-4b90bdb33a68/token"
+                url: 'https://us1.pusherplatform.io/services/chatkit_token_provider/v1/bb4d357a-bfef-46f3-bddb-4b90bdb33a68/token'
             })
         })
         
