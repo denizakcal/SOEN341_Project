@@ -3,6 +3,7 @@
     <title>Simple login</title>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script>
+      // THE FOLLOWING IS FOR TEXT PURPOSES (UNTIL THE OTHER COMMENT THAT SAYS THE ABOVE IS FOR TEXT PURPOSES).
       /*processFormData();
       function processFormData() {
         $(document).ready(function(){
@@ -60,25 +61,55 @@
               //   alert("login success");
               // }
               alert("blabla" + data);
-              $("input#usernameHtmlId").val(data);
+              $("input#passwordHtmlId").val(data);
             });
           });
       }
 
       yo1();
       yo2();
+      // THE ABOVE IS FOR TEST PURPOSES.
 
-      function registerUserClientSide(passedUserAccountName,passedUserAccountPassword,passedFirstName,passedLastName) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      // Function definitions
+      function registerUserClientSide(passedUserAccountName,passedUserAccountPassword,passedFirstName,passedLastName, specifiedHtmlComponent) {
         $(document).ready(function(){
           $.post("http://localhost:3000/registerUser",
             {userAccountName: passedUserAccountName, userAccountPassword: passedUserAccountPassword, firstName: passedFirstName, lastName: passedLastName}, /*There is no need to pass a userId because it is automatically incremented.*/
-            function(data){}
+            function(data){
+              $(specifiedHtmlComponent).val(data);
+            }
           );
         });
       }
 
+      // Function calls (for testing purposes)
       var someUserAccountName = 'bugsBunny2019', someUserAccountPassword = 'password123', someFirstName = 'Bugs', someLastName = 'Bunny';
-      registerUserClientSide(someUserAccountName,someUserAccountPassword,someFirstName,someLastName);
+      registerUserClientSide(someUserAccountName,someUserAccountPassword,someFirstName,someLastName,'input#usernameHtmlId');
     </script>
   </head>
   <body>

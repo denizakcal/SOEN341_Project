@@ -57,7 +57,7 @@ function getSqlResultTwoServer(callback) {
   });
 }
 
-function registerUserServerSide(passedAccountName, passedUserAccountPassword, passedFirstName, passedLastName) {
+function registerUserServerSide(passedAccountName, passedUserAccountPassword, passedFirstName, passedLastName, callback) {
   const pg = require('pg');
   const pool = new pg.Pool({
   user: 'deniz',
@@ -66,17 +66,19 @@ function registerUserServerSide(passedAccountName, passedUserAccountPassword, pa
   password: 'cncrd',
   port: '5432'});
     console.log("hilo");
-    pool.query(`INSERT INTO Users(userAccountName,userAccountPassword,firstName,lastName) VALUES('${passedAccountName}', '${passedUserAccountPassword}', '${passedFirstName}', '${passedLastName}')`, (theError, theResult) => {
+    var idOfRegisteredUser = pool.query(`INSERT INTO Users(userAccountName,userAccountPassword,firstName,lastName) VALUES('${passedAccountName}', '${passedUserAccountPassword}', '${passedFirstName}', '${passedLastName}')`, (theError, theResult) => {
       //console.log(theError, theResult);
       
       //console.log(theError,theResult['rows']);
       //console.log(theError,theResult['rows'][0]);
       //var dataToReturn = theResult['rows'][0]['n'];
       //console.log("dataToReturn: " + dataToReturn); // This works properly.
+      //var idOfRegisteredUser = pool.query("");
       pool.end();
       // also need to handle if there are errors, this assumes success
       //var dataToReturn = "somePlaceholderValueForNow";
-      //callback(dataToReturn)      
+      alert("idOfRegisteredUser" + idOfRegisteredUser);
+      callback(idOfRegisteredUser);
   });
 }
 
@@ -102,7 +104,7 @@ app.post('/db2',function(req,res){
   //res.end('db2_yo');
 });
 
-app.post('/registerUser',function(req,res){
+app.post('/registerUser',function(req,res) {
   /*addUserServer((dataFromCallback) => {
     //this code is the actual callback
     //console.log('yo', dataFromCallback)
@@ -111,7 +113,16 @@ app.post('/registerUser',function(req,res){
   //var user_name=req.body.username;
   //var password=req.body.password;
   //console.log("User name = "+user_name+", password is "+password);
-  registerUserServerSide(req.body.userAccountName, req.body.userAccountPassword, req.body.firstName, req.body.lastName);
+  getSqlResultOneServer((dataFromCallback) => {
+    //this code is the actual callback
+    //console.log('yo', dataFromCallback)
+    res.end(`${dataFromCallback}`);
+  })
+  registerUserServerSide(req.body.userAccountName, req.body.userAccountPassword, req.body.firstName, req.body.lastName, (dataFromCallback) => {
+    //this code is the actual callback
+    //console.log('yo', dataFromCallback)
+    res.end(`${dataFromCallback}`);
+  });
   //res.end('db2_yo');
 });
 
