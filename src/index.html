@@ -107,9 +107,24 @@
         });
       }
 
+      function createChannelClientSide(passedChannelName, specifiedHtmlComponent) {
+        $(document).ready(function(){
+          $.post("http://localhost:3000/createChannel",
+            {channelName: passedChannelName}, /*There is no need to pass a userId because it is automatically incremented.*/
+            function(data){
+              $(specifiedHtmlComponent).val(data);
+              console.log("spider: " + data);
+            }
+          );
+        });
+      }
+
       // Function calls (for testing purposes)
       var someUserAccountName = 'bugsBunny2019', someUserAccountPassword = 'password123', someFirstName = 'Bugs', someLastName = 'Bunny', specifiedHtmlComponent = 'input#usernameHtmlId';
       registerUserClientSide(someUserAccountName,someUserAccountPassword,someFirstName,someLastName,specifiedHtmlComponent);
+
+      var someChannelName = 'general', specifiedHtmlComponent = 'input#usernameHtmlId';
+      createChannelClientSide(someChannelName,specifiedHtmlComponent);
     </script>
   </head>
   <body>

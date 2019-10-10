@@ -69,7 +69,7 @@ function registerUserServerSide(passedAccountName, passedUserAccountPassword, pa
   console.log("hilo");
   //var idOfRegisteredUser = pool.query(`INSERT INTO Users(userAccountName,userAccountPassword,firstName,lastName) VALUES('${passedAccountName}', '${passedUserAccountPassword}', '${passedFirstName}', '${passedLastName}')`, (theError, theResult) => {
   var idOfRegisteredUser = '-1';
-  pool.query(`INSERT INTO Users(userAccountName,userAccountPassword,firstName,lastName) VALUES('${passedAccountName}', '${passedUserAccountPassword}', '${passedFirstName}', '${passedLastName}')`, (theError, theResult) => {
+  pool.query(`INSERT INTO Users(userAccountName,userAccountPassword,firstName,lastName) VALUES('${passedAccountName}', '${passedUserAccountPassword}', '${passedFirstName}', '${passedLastName}');`, (theError, theResult) => {
     //idOfRegisteredUser = theResult.rows;
       //console.log(theError, theResult);
     
@@ -105,6 +105,26 @@ function registerUserServerSide(passedAccountName, passedUserAccountPassword, pa
   });
 }
 
+function createChannelServerSide(passedChannelName, callback) {
+  const pg = require('pg');
+  const pool = new pg.Pool({
+  user: 'deniz',
+  host: '127.0.0.1',
+  database: 'soen341db',
+  password: 'cncrd',
+  port: '5432'});
+  
+  var idOfRegisteredUser = '-1';
+  pool.query(`INSERT INTO Channels(channelName) VALUES('${passedChannelName}');`, (theError, theResult) => {
+  });
+
+  pool.query('SELECT COUNT(channelId) FROM Channels', (theError, theResult) => {
+    idOfCreatedChannel = Number(theResult.rows[0].count) + 1;
+    pool.end();
+    callback(idOfCreatedChannel);
+  });
+}
+
 app.post('/login',function(req,res){
   //console.log("getSqlResult(): " + getSqlResult()); // Why is this returning undefined?
   //var user_name=req.body.username;
@@ -127,6 +147,31 @@ app.post('/db2',function(req,res){
   //res.end('db2_yo');
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 app.post('/registerUser',function(req,res) {
   /*addUserServer((dataFromCallback) => {
     //this code is the actual callback
@@ -148,6 +193,13 @@ app.post('/registerUser',function(req,res) {
     res.end(`${dataFromCallback}`);
   });
   //res.end('db2_yo');
+});
+
+app.post('/createChannel',function(req,res) {
+  createChannelServerSide(req.body.channelName, (dataFromCallback) => {
+    console.log("ti?: ", dataFromCallback);
+    res.end(`${dataFromCallback}`);
+  });
 });
 
 app.listen(3000,function(){
