@@ -9,7 +9,9 @@ class App extends React.Component{
         return (
             <div className="app">
             <RoomList />
-            <MessageList />
+            /** Every time the data changes, render() is triggred and data will pass to MessageList 
+            data is passed to MessageList as messages prop*/
+            <MessageList messages={this.state.messages}/>
             <SendMessageForm />
             <NewRoomForm />
         </div>
