@@ -1,0 +1,21 @@
+{
+  "name": "ckyvVtq",
+  "dependencies": {
+    "@pusher/chatkit": "0.7.15",
+    "@pusher/chatkit-server": "^2.1.1",
+    "react": "16.0.0",
+    "react-dom": "16.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.0",
+    "babel-loader": "^7.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "*",
+    "babel-preset-react": "*",
+    "webpack": "^2.7.0"
+  },
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack -w"
+  }
+}
