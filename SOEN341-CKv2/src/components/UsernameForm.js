@@ -21,7 +21,7 @@ onChange(e) {
     return (
      <div>
        <div>
-         <h2>What is your username?</h2>
+         <h2>Username</h2>
          <form onSubmit={this.onSubmit}>
            <input
              type="text"

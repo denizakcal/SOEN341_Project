@@ -1,5 +1,5 @@
 :root {
-    --main-color: #3f00b4;
+    --main-color: #22004e;
     --secondary-color: white;
     --main-text-color: #513e69;
     --secondary-text-color: #b0c7d6;
@@ -70,7 +70,7 @@ html, body {
 
 .rooms-list h1 {
     margin: 5px 0;
-    color: black;
+    color: rgb(255, 255, 255);
 }
 
 .rooms-list h3 {

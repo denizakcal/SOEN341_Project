@@ -9,10 +9,11 @@ import NewRoomForm from './components/NewRoomForm'
 
 class App extends React.Component {
     
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             roomId: null,
+          //  currentUser: {},
             messages: [],
             joinableRooms: [],
             joinedRooms: []
@@ -26,9 +27,9 @@ class App extends React.Component {
     componentDidMount() {
         const chatManager = new Chatkit.ChatManager({
             instanceLocator: 'v1:us1:bb4d357a-bfef-46f3-bddb-4b90bdb33a68',
-            userId: 'admin',
+            userId: this.props.currentUsername,
             tokenProvider: new Chatkit.TokenProvider({
-                url: 'https://us1.pusherplatform.io/services/chatkit_token_provider/v1/bb4d357a-bfef-46f3-bddb-4b90bdb33a68/token'
+                url: 'http://localhost:3001/authenticate'
             })
         })
         
@@ -55,12 +56,19 @@ class App extends React.Component {
         this.setState({ messages: [] })
         this.currentUser.subscribeToRoom({
             roomId: roomId,
+            messageLimit: 100,
             hooks: {
-                onNewMessage: message => {
+                onMessage: message => {
                     this.setState({
                         messages: [...this.state.messages, message]
                     })
-                }
+                },
+                /*onUserStartedTyping : (user) => {
+                    // do something with the user
+                },
+                onUserStoppedTyping : (user) => {
+                    // do something with the user
+                }*/
             }
         })
         .then(room => {
