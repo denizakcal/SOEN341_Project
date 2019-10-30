@@ -33,7 +33,7 @@ class NewRoomForm extends React.Component {
                         type="text" 
                         placeholder="Create channel" 
                         required />
-                    <button id="create-room-btn" type="submit">+</button>
+                    <button id="create-room-btn" type="submit"> + </button>
             </form>
         </div>
         )
