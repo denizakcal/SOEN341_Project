@@ -3,6 +3,7 @@
     <title>Simple login</title>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script>
+      // THE FOLLOWING IS FOR TEXT PURPOSES (UNTIL THE OTHER COMMENT THAT SAYS THE ABOVE IS FOR TEXT PURPOSES).
       /*processFormData();
       function processFormData() {
         $(document).ready(function(){
@@ -59,25 +60,71 @@
               // {
               //   alert("login success");
               // }
-              alert(data);
+              alert("blabla" + data);
+              $("input#passwordHtmlId").val(data);
             });
           });
       }
 
       yo1();
       yo2();
+      // THE ABOVE IS FOR TEST PURPOSES.
 
-      function addUserClientSide(passedFirstName, passedLastName) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      // Function definitions
+      function registerUserClientSide(passedUserAccountName,passedUserAccountPassword,passedFirstName,passedLastName, specifiedHtmlComponent) {
         $(document).ready(function(){
-          $.post("http://localhost:3000/addUser",
-            {firstName: passedFirstName, lastName: passedLastName}, /*There is no need to pass a userId because it is automatically incremented.*/
-            function(data){}
+          $.post("http://localhost:3000/registerUser",
+            {userAccountName: passedUserAccountName, userAccountPassword: passedUserAccountPassword, firstName: passedFirstName, lastName: passedLastName}, /*There is no need to pass a userId because it is automatically incremented.*/
+            function(data){
+              $(specifiedHtmlComponent).val(data);
+            }
           );
         });
       }
 
-      var someFirstName = 'Bugs', someLastName = 'Bunny';
-      addUserClientSide(someFirstName,someLastName);
+      function createChannelClientSide(passedChannelName, specifiedHtmlComponent) {
+        $(document).ready(function(){
+          $.post("http://localhost:3000/createChannel",
+            {channelName: passedChannelName}, /*There is no need to pass a userId because it is automatically incremented.*/
+            function(data){
+              $(specifiedHtmlComponent).val(data);
+              console.log("spider: " + data);
+            }
+          );
+        });
+      }
+
+      // Function calls (for testing purposes)
+      var someUserAccountName = 'bugsBunny2019', someUserAccountPassword = 'password123', someFirstName = 'Bugs', someLastName = 'Bunny', specifiedHtmlComponent = 'input#usernameHtmlId';
+      registerUserClientSide(someUserAccountName,someUserAccountPassword,someFirstName,someLastName,specifiedHtmlComponent);
+
+      var someChannelName = 'general', specifiedHtmlComponent = 'input#usernameHtmlId';
+      createChannelClientSide(someChannelName,specifiedHtmlComponent);
     </script>
   </head>
   <body>

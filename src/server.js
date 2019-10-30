@@ -57,7 +57,7 @@ function getSqlResultTwoServer(callback) {
   });
 }
 
-function addUserServerSide(passedFirstName, passedLastName) {
+function registerUserServerSide(passedAccountName, passedUserAccountPassword, passedFirstName, passedLastName, callback) {
   const pg = require('pg');
   const pool = new pg.Pool({
   user: 'deniz',
@@ -65,18 +65,63 @@ function addUserServerSide(passedFirstName, passedLastName) {
   database: 'soen341db',
   password: 'cncrd',
   port: '5432'});
-    console.log("hilo");
-    pool.query(`INSERT INTO Users(firstName,lastName) VALUES('${passedFirstName}','${passedLastName}')`, (theError, theResult) => {
+  
+  console.log("hilo");
+  //var idOfRegisteredUser = pool.query(`INSERT INTO Users(userAccountName,userAccountPassword,firstName,lastName) VALUES('${passedAccountName}', '${passedUserAccountPassword}', '${passedFirstName}', '${passedLastName}')`, (theError, theResult) => {
+  var idOfRegisteredUser = '-1';
+  pool.query(`INSERT INTO Users(userAccountName,userAccountPassword,firstName,lastName) VALUES('${passedAccountName}', '${passedUserAccountPassword}', '${passedFirstName}', '${passedLastName}');`, (theError, theResult) => {
+    //idOfRegisteredUser = theResult.rows;
       //console.log(theError, theResult);
-      
-      //console.log(theError,theResult['rows']);
-      //console.log(theError,theResult['rows'][0]);
-      //var dataToReturn = theResult['rows'][0]['n'];
-      //console.log("dataToReturn: " + dataToReturn); // This works properly.
-      pool.end();
-      // also need to handle if there are errors, this assumes success
-      //var dataToReturn = "somePlaceholderValueForNow";
-      //callback(dataToReturn)      
+    
+    //console.log(theError,theResult['rows']);
+    //console.log(theError,theResult['rows'][0]);
+    //var dataToReturn = theResult['rows'][0]['n'];
+    //console.log("dataToReturn: " + dataToReturn); // This works properly.
+    //var idOfRegisteredUser = pool.query("");
+    //pool.end();
+    // also need to handle if there are errors, this assumes success
+    //var dataToReturn = "somePlaceholderValueForNow";
+    //alert("idOfRegisteredUser" + idOfRegisteredUser);
+    //callback(idOfRegisteredUser);
+  });
+
+  pool.query('SELECT COUNT(userId) FROM Users', (theError, theResult) => {
+    //idOfRegisteredUser = theResult.rows.count;
+    idOfRegisteredUser = Number(theResult.rows[0].count) + 1;
+    //idOfRegisteredUser = theResult.rows[0].count + 1;
+    //console.log("plane2: " + idOfRegisteredUser);
+      //console.log(theError, theResult);
+    
+    //console.log(theError,theResult['rows']);
+    //console.log(theError,theResult['rows'][0]);
+    //var dataToReturn = theResult['rows'][0]['n'];
+    //console.log("dataToReturn: " + dataToReturn); // This works properly.
+    //var idOfRegisteredUser = pool.query("");
+    pool.end();
+    // also need to handle if there are errors, this assumes success
+    //var dataToReturn = "somePlaceholderValueForNow";
+    //alert("idOfRegisteredUser" + idOfRegisteredUser);
+    callback(idOfRegisteredUser);
+  });
+}
+
+function createChannelServerSide(passedChannelName, callback) {
+  const pg = require('pg');
+  const pool = new pg.Pool({
+  user: 'deniz',
+  host: '127.0.0.1',
+  database: 'soen341db',
+  password: 'cncrd',
+  port: '5432'});
+  
+  var idOfRegisteredUser = '-1';
+  pool.query(`INSERT INTO Channels(channelName) VALUES('${passedChannelName}');`, (theError, theResult) => {
+  });
+
+  pool.query('SELECT COUNT(channelId) FROM Channels', (theError, theResult) => {
+    idOfCreatedChannel = Number(theResult.rows[0].count) + 1;
+    pool.end();
+    callback(idOfCreatedChannel);
   });
 }
 
@@ -102,7 +147,32 @@ app.post('/db2',function(req,res){
   //res.end('db2_yo');
 });
 
-app.post('/addUser',function(req,res){
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+app.post('/registerUser',function(req,res) {
   /*addUserServer((dataFromCallback) => {
     //this code is the actual callback
     //console.log('yo', dataFromCallback)
@@ -111,8 +181,25 @@ app.post('/addUser',function(req,res){
   //var user_name=req.body.username;
   //var password=req.body.password;
   //console.log("User name = "+user_name+", password is "+password);
-  addUserServerSide(req.body.firstName, req.body.lastName);
+  /*registerUserServerSide((dataFromCallback) => {
+    //this code is the actual callback
+    //console.log('yo', dataFromCallback)
+    res.end(`${dataFromCallback}`);
+  })*/
+  registerUserServerSide(req.body.userAccountName, req.body.userAccountPassword, req.body.firstName, req.body.lastName, (dataFromCallback) => {
+    //this code is the actual callback
+    //console.log('yo', dataFromCallback)
+    console.log("it?: ", dataFromCallback);
+    res.end(`${dataFromCallback}`);
+  });
   //res.end('db2_yo');
+});
+
+app.post('/createChannel',function(req,res) {
+  createChannelServerSide(req.body.channelName, (dataFromCallback) => {
+    console.log("ti?: ", dataFromCallback);
+    res.end(`${dataFromCallback}`);
+  });
 });
 
 app.listen(3000,function(){
