@@ -19,19 +19,37 @@ onChange(e) {
  }
  render() {
     return (
-     <div>
-       <div>
-         <h2>Username</h2>
+     /*<div className="username-form">
+       <article>
+        <header>
+          <h1>KOADY</h1>
+        </header>
+        <section>
+         <h2>Log in</h2>
+         <form onSubmit={this.onSubmit}>
+           <input
+             type="text"
+             placeholder="Username"
+             onChange={this.onChange}
+           />
+           <input type="submit" value = "Join KOADY!"/>
+         </form>
+         </section>
+       </article>
+     </div>*/
+     <div className="Login-page">
+       
+       <div className ="form">
          <form onSubmit={this.onSubmit}>
            <input
              type="text"
              placeholder="Your full name"
              onChange={this.onChange}
            />
-           <input type="submit" />
+           <input type="submit" value = "Join KOADY!" />
          </form>
        </div>
-     </div>
+     </div> 
    )
  }
 }
