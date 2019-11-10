@@ -1,13 +1,4 @@
 language: node_js
 node_js:
-- lts/*
-- node
-dist: trusty
-addons:
-  sonarcloud:
-    organization: sonar-key-for-koady
-    token:
-	secure: "E/aLdNFuoIL0IwKHOtToWD3fCaJbFB87btecmtY0UUnzkQtCjppTciOaHCnpd9jBO3uM9KUV4tulNhhNKqKcPMveAVCl8p1scYav4JNxTjJcWAjEWrCRjfyLV+CxtRClDrifQTFWYFmfgufHW8fvODHOPsnGeTkZ0H/CgEbdLQNuZ3Hbfvw9Rgr7YnqpINPYTmgaKB4t4bOUZZuSROPWv6w4Dhp5scQhwSzuoBZGz1yOU5YMMf0SvUYXD/hRGt3lFC8foXhPDIukIv7d+XOv60fAjFMF4FNRqxUZdaVlqTAPKHy+7icGQrMMoEhkAWVpHdEE5WxRM38EmpC04O4PFoYTM0qd7y7ak64MCaATeO6eKzoExEE9JksQNl/EQRBaaFKFOu70CtOj3uWakxKK2LqPBUL5w5D1wRjiTrqYc9qslfzbUouDooxoOZ4SIWZMc98mmzJTeTi87dvL9VipfCLj6qdrIjT7eD1wVY2LU45TWI5iJL3nGp9Vs9b4irV+Cx99rwjvyp7p+FaEfWZ/RQqotLfS1Qr55D0e+LsRWm4DSW1u3G5JJENq6cjP0soogdIuurI2QpvfR3Hiri/LVzMMW55AWeSPkuSa4SS1PETU/ry59SUPTtTHqDKqnwqUfYyNBp4GtdsDLDOAVc6L/nPIoBbu7lYXAFolHn121Q4="
-
-script:
-- sonar-scanner
+- 'lts/*'
+- 'node'
