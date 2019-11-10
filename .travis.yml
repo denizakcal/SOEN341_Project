@@ -9,7 +9,7 @@ addons:
   sonarcloud:
     organization: "sonarcloud" # the key of the org you chose at step #3
     token:
-      secure: "KREPPF1v5TLEoKufpLuNQRtBsj8w5DUnQh5DhWTkGgNTT/L3mnq7+j2Zh57h+nRBfPzoUwkm3DEFxppQ0kg8ymKF0feRaQYe1i0UpznMfh8KhphyMNMgM4G0n+xjeYon8+uBxOKUPDYWORjYrFydYPiVQyyAH1Y/IVGLolnyC6XkgFNxmT1ZM+H8LD1u168EqxwMbxUb71GpYinFh/wdkkmTPUHVLv4HF/DB+H22E7JCj9uMs4xARkd0vw62ZNTc/Dhe+rGJhK/vkQ2sx94HS/onpG4OWPW4dO4H8EVobmZSLVPB90tiKJWBGXNr3ul+thFl7v2mNBqCiWaV7GedU9hwuBSoS8ZFgg7Yocv0UjEmLE/DQ9XNJZO9PzQtBgfov+0dZf/jp5YVMER4Xf+S9ovqPipSYMIPOKjvdcIfG2qihdzyDPds7AQRLiX0VfKWX1qXAdIrZNJuOMGmRjSNp858nd2lU/G1gumTxqLZURfQA4ZIeItAjHdG6zfPEfirON0ZJaLTguEQy6mkaeXS4pf7rAkWC8P9HUMLgQ9AmKeY/R5LcSPodvFBZalEBPIznq2GD+xgWIewbQvKRbPR48KTB44NMXcK1P6+yEn7/m30RA6NXPLR8V1BA9+MSrdZpXoCR8HZuestXfySjB+idRL83ft3I0DQoRSnd91HWdk=" # encrypted value of your token
+      secure: "*********" # encrypted value of your token
 script:
   # other script steps might be done before running the actual analysis
-  - sonar-scanner
+  - sonar-scanner -X
