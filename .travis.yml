@@ -1,4 +1,22 @@
 language: node_js
 node_js:
-- 'lts/*'
-- 'node'
+- lts/*
+- node
+
+
+dist: trusty
+
+addons:
+  sonarcloud:
+    organization: "sonar-key-for-koady"
+    token:
+      secure: "**************************" # encrypted value of your token
+
+script:
+  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  - sonar-scanner
+
+
+env:
+  global:
+    secure: lId/Gl868bJULNFIzqti7W4ts9WcDJnUHHG3dzBc+zdJUg/prbxuHtPQM5sTeXAW3WhrTdnHTTxve9bQpd4mt3N8PFVIz3aIjHW5kxlVb91ZbxHaB6lhg9SYsZhA/OChNDEWDEPqBUdq94PyVooI4UZiFLYUHygF5cyCOXaFGatE0p9dU+1IQIkF+5d/GJSXlyZaWNkvsb2dCpdNnK1298qANIVcBTQwtAWBtqwwakxnbQyM0nqYjgRduxHPnoSBZARoMgN6BRXiUzmS/SoI1ibjIjMOa4SIHynitoN1eF7ceOUD4e+eRrriO55nNsMmTye4wxCrOYjq24hsMz0em1KWqJ372U80IZyYkf31pzfJGJNefglNEirnXfH82D+hefYGcAjX8ALhr9ZBkERLzjtlpJjqjCSRBvYwKodvHZorxxivaTwRsD7lp/nd1HoR3rrzWhBMp7cWmC39d3YEq5B7yinzyTuW3aZKedhAf+tElK902KfQp5eHBzC2c529zf/pSMEEalM/Y9syyFg/WsVQBot/UKzazb33eGcC2RRaB10du4pCRvG5o9hhV4GFVGCaiNOtx1Yo8N6BywkeHz3kRIi8jRqdLM39/X+er+dHmvRo6s8amPbR/HCtbAsMj/tK7yrvOEio0BZF1Y0a1531QJVz59KRBgXdAKjG0bg=
