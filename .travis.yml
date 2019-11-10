@@ -7,9 +7,9 @@ dist: trusty
 
 addons:
   sonarcloud:
-    organization: "sonarcloud_organization_key" # the key of the org you chose at step #3
+    organization: "sonarcloud" # the key of the org you chose at step #3
     token:
-      secure: 8a50b31484e001b1be9e7ea33d2564e271b8a9fa # encrypted value of your token
+      secure: "*********" # encrypted value of your token
 script:
   # other script steps might be done before running the actual analysis
   - sonar-scanner
