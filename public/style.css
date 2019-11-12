@@ -1,18 +1,18 @@
 :root {
-    --main-color: #332750;
-    --secondary-color: rgba(157, 191, 194, 0.726);
-    --main-text-color: #ebdc0b;
+    --main-color: #22004e;
+    --secondary-color: white;
+    --main-text-color: #513e69;
     --secondary-text-color: #b0c7d6;
-    --send-message-form: rgba(100,100,100,0.6);
+    --send-message-form: #F5F5F5;
 }
 
 html, body {
-    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(koadywallpaper.jpg);
-    height : 100vh;
-    background-size: cover;
-    background-position: center;
-   
-   
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui;
+    font-weight: 200;
+    color: 	#3e5869; 
 }
 
 #root {
@@ -21,7 +21,7 @@ html, body {
 
 .app {
     display: grid;
-    padding: 30px 110px 50px;
+    height: 100%;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 60px;
     grid-template-areas: 
@@ -53,8 +53,7 @@ html, body {
 .rooms-list {
     box-sizing: border-box;
     padding: 10px;
-    /*background-color: var(--main-color);*/
-    background:rgba(100,100,100,0.6);
+    background-color: var(--main-color);
     overflow: scroll;
     height: 100%;
 }
@@ -66,7 +65,6 @@ html, body {
 }
 
 .rooms-list li {
-    background:rgba(100,100,100,0.6);
     margin: 10px 0;
 }
 
@@ -92,10 +90,9 @@ html, body {
 }
 
 .new-room-form {
-    padding: 0 50px;
+    padding: 0 5px;
     background: var(--secondary-color);
     color: var(--main-text-color);
-    background:rgba(100,100,100,0.6);
 }
 
 .new-room-form form {
@@ -107,6 +104,7 @@ html, body {
 
 .new-room-form input {
     width: 135px;
+    background: var(--secondary-color);
 }
 
 .new-room-form button {
@@ -156,7 +154,7 @@ html, body {
     width: 100%;
     height: 100%;
     overflow: scroll;
-    background:rgba(100,100,100,0.6);
+    background: var(--secondary-color);
 }
 
 .message-list .join-room {
@@ -171,12 +169,11 @@ html, body {
 .send-message-form {
     background: var(--send-message-form);
     display: flex;
-    height: 100%;
 }
 
 .send-message-form input {
     width: 100%;
-    padding: 15px 10px ;
+    padding: 15px 10px;
     margin: 0;
     border-style: none;
     background: var(--send-message-form);
@@ -190,37 +187,43 @@ html, body {
 
 .send-message-form input::placeholder {
     color: var(--main-text-color);
-    font-weight: bold;
 }
-
 
 .help-text {
     position: absolute;
     top: 10px;
 }
-.login-page{
-    width: 360px;
-    padding: 10% 0 0;
-    margin: auto;
+
+.username-form h1{
+    background-color: #010101;
+    padding: 10px;
+    text-align: left;
+    font-size: 25px;
+    color: white;
 }
-.form{
-position: relative;
-z-index: 1;
-background:rgba(100,100,100,0.5);
-max-width: 360px;
-margin: 0 auto 100px;
-padding: 45px;
-text-align: center;
+
+.username-form h2{
+    text-align: center;
+    color: white;
+
 }
-.form input{
-    font-family: "Roboto", sans-serif;
-    outline: 1;
-    background: #f2f2f2;
-    font-weight: bold;
-    width:70%;
-    border: 0;
-    margin: 0 0 15px;
-    padding: 20px;
-    box-sizing: border-box;
-    font-size: 22px;
+
+.username-form form{
+    text-align: center;
+}
+
+.username-form article{
+    background-image: url(koadywallpaper.jpg);
+    background-size:cover;
+    height: 770px;
+}
+
+.username-form section{
+    margin:0;
+    padding:0;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
 }
