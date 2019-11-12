@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+- 'lts/*'
+- 'node'
+
+dist: trusty
+
+addons:
+  sonarcloud:
+    organization: "sonarcloud" # the key of the org you chose at step #3
+    token:
+      secure: "*********" # encrypted value of your token
+script:
+  # other script steps might be done before running the actual analysis
+  - sonar-scanner -X
