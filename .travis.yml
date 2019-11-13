@@ -10,8 +10,7 @@ addons:
     sonarcloud:
         organization: "sonar-key-for-koady"
         token:
-            secure: baf1934c66926b0f35ab867d2f9d5fd32efc10dc
-            #secure: "cJsLsl9XIHY959vqoZFDdAnaIqssK2jAt2qOcniar/v/hFEyHXh1uXLkAZ2XQ0ienu7l5KG8ckS5+dkLFWrhAuq2vakig6P3dEDStJwgTPVeuilZC2oImyvuniqQFBQDSfrR7nXtm9IdhJV7yd9zVvmRVSqI3pHtTtyeAvqfk7DkYwkexgG2B/bEzoJ58z68qyd0UUeIm2ca/ZS5mI/qlHnVZLwoJ8vIf7SaWFxqya66BoEo4PpHaSz9unWbJhUbEPqEYZu7nn8VsOS8eSjLRJaGK3wRqNSB+XAuQHBPNDW+bNfhgkXbMWZpNAsZe1zQgCMZtScsiPYzbPOcxQKosNU3/KLINWpk8sF9I8/vshm0u/WXdhIR/7PmmrtlmpBB2aAB62rSVzs0ZC4vEX8dBd5wsnEt++UVXeVtm43T2RqLcGKk1SdOqZE6qDmKHEBnAxbNSAK2ZTKcx/6wgpoFflQO/SyHCHSELvg/jKXMp55TuRFtfxu8dHxVyY4FhYy33BqOEA9yMwoh/Vygq+BrmnbnEZenpFDOHck3w1BASfzROPNGB23mcQKQV7iVapzIDOZTWdi12yoyYQ6bb+Zqut/HUux47Ye9cgZA7G6njlZdlGkkwXKdsfIl7FUvjOTNFMylfYKH03z86HPXM+gwOu//bnmhnWL+KNujsza/ElA="
+            secure: "kvzvqA33zTh7ROJVuhdq8EcID2S07ou40gm0WcW5mqcOB9ZZn1mWbkee/hfHzJVsnZTPc2gBIcBMAXlpTpnCnUCt1oTsTbzGT1MiFRFFf+zh6g+LJDCnyGyaIn/us08g1LjcywUz59+d3/ZEZcnVlSfyp9Ueowfsp3lA9K5VZ/JBvXfvqy1tkk5ZZZ2wOuPcIOqifiweQ3MCg8NadvIRporuYCRaFpus3GYvh7pjm6OeHTIC9qcCFu2Mzu2pWBG9HH04SaPPM6/khavs32WHmDfosCmR+r3Xwh+R8rGTQnclxtjefWhISwoKG3VtPC8bsk+XH4OgmJ8VP+RvVZD2Pw9jBsabe/BC732EAkuLmnMXGsNpq/CGyaCFDqIsC2JrK24ddGdnnGEDySLp7b6sISmQ8pIjRhgGiSpccH1uOB3YM4b+7wOnrv3FVcrK3KAmM+4emIOwpGjAA4L1Xda8Fw3Yrfx/0TMtGrb1Z42lZsMdMy3H5qBeX9BzsUQ+ee+qnMd++kE0UPK5o9G/cnMhQB10ByckFJldQAthOs4ngVQyvvFTBIeKVgbWw38lklFZob1FOaBH1MMgc/ftzMRsu000v3ARQt2XNX2O1chXsRC2FvQmSm7Er37c3QnI0DZChQDspNFLqzXBavn63gbHsDb2gj84ZQFZlJxwmPb9KIQ="
 
 script:
 - sonar-scanner -X
