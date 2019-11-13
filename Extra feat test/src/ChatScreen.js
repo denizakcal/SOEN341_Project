@@ -89,9 +89,7 @@ class App extends React.Component {
                        ),
                       })
                     },
-                onUserCameOnline: () => this.forceUpdate(),
-                onUserWentOffline: () => this.forceUpdate(),
-                OnUserJoined: () => this.forceUpdate()
+                onPresenceChange: () => this.forceUpdate()
             }
         })
         .then(room => {
@@ -134,7 +132,9 @@ class App extends React.Component {
                 <MessageList 
                     roomId={this.state.roomId}
                     messages={this.state.messages} />
+                <aside className = "TypingInd">
                 <TypingIndicator usersWhoAreTyping={this.state.usersWhoAreTyping} />
+                </aside>
                 <SendMessageForm
                     disabled={!this.state.roomId}
                     sendMessage={this.sendMessage}

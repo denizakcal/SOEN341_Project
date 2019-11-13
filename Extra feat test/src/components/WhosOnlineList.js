@@ -24,9 +24,10 @@ class WhosOnlineList extends Component {
 
   render() {
     if (this.props.users) {
+      <p>Online Users</p>
       return this.renderUsers()
     } else {
-      return <p>Loading...</p>
+      return <p>Online Users:</p>
     }
   }
 }

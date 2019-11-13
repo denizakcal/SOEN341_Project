@@ -11,7 +11,7 @@ class TypingIndicator extends React.Component {
         </div>
       )
     }
-    return <div />
+    return <p>Nobody is typing</p>
   }
 }
 

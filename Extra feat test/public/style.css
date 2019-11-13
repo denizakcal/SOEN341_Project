@@ -233,9 +233,13 @@ text-align: center;
 }
 
 .whosOnlineListContainer{
-    width: '300px';
-    flex: 'none';
+    width: 300px;
+    flex: none;
     padding: 20;
-    background: '#2c303b';
-    color: 'white';
+    background: #2c303b;
+    color: red;
           }
+
+.TypingInd{
+    color: red;
+}
