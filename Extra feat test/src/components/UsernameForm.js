@@ -18,40 +18,29 @@ onChange(e) {
    this.setState({ username: e.target.value })
  }
  render() {
-    return (
-     /*<div className="username-form">
-       <article>
-        <header>
-          <h1>KOADY</h1>
-        </header>
-        <section>
-         <h2>Log in</h2>
-         <form onSubmit={this.onSubmit}>
-           <input
-             type="text"
-             placeholder="Username"
-             onChange={this.onChange}
-           />
-           <input type="submit" value = "Join KOADY!"/>
-         </form>
-         </section>
-       </article>
-     </div>*/
-     <div className="Login-page">
-       
-       <div className ="form">
-         <form onSubmit={this.onSubmit}>
-           <input
-             type="text"
-             placeholder="Your full name"
-             onChange={this.onChange}
-           />
-           <input type="submit" value = "Join KOADY!" />
-         </form>
-       </div>
-     </div> 
-   )
- }
+  return (
+   
+   <div className="Login-page">
+      <h1>
+        KOADY
+      </h1>       
+     <div className ="form">
+       <h2>
+         W E L C O M E !
+       </h2>
+       <form onSubmit={this.onSubmit}>
+         <input
+           type="text"
+           placeholder="Username" 
+           onChange={this.onChange}
+         />
+         
+         <input type="submit" value = "Submit" />
+       </form>
+     </div>
+   </div> 
+ )
+}
 }
 
  export default UsernameForm
