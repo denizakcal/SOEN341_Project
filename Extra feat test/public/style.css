@@ -1,18 +1,19 @@
 :root {
-    --main-color: #332750;
+    --main-color: #0A1C28;
     --secondary-color: rgba(157, 191, 194, 0.726);
-    --main-text-color: #ebdc0b;
+    --main-text-color: white;;
     --secondary-text-color: #b0c7d6;
     --send-message-form: rgba(100,100,100,0.6);
 }
 
 html, body {
     background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(koadywallpaper.jpg);
-    height : 100vh;
+    height : 100%;
     background-size: cover;
     background-position: center;
-   
-   
+    margin: 0;
+    padding: 0;
+
 }
 
 #root {
@@ -31,13 +32,6 @@ html, body {
         "r m m m m m"
         "r m m m m m"
         "n s s s s s";
-}
-
-.Typing-Ind {
-    font-size: 11px;
-    color: var(--main-text-color);
-    opacity: 0.9;
-    margin-bottom: 6px;
 }
 
 .new-room-form {
@@ -64,6 +58,7 @@ html, body {
     background:rgba(100,100,100,0.6);
     overflow: scroll;
     height: 100%;
+    font-family: "Palatino Linotype";
 }
 
 .rooms-list ul {
@@ -80,6 +75,7 @@ html, body {
 .rooms-list h1 {
     margin: 5px 0;
     color: rgb(255, 255, 255);
+    
 }
 
 .rooms-list h3 {
@@ -103,13 +99,14 @@ html, body {
     background: var(--secondary-color);
     color: var(--main-text-color);
     background:rgba(100,100,100,0.6);
+    
 }
 
 .new-room-form form {
     height: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center;  
 }
 
 .new-room-form input {
@@ -123,8 +120,10 @@ html, body {
 } 
 
 .new-room-form input::placeholder {
-    color: var(--main-text-color);
+    color: black;
     font-weight: 200;
+    font-family: "Palatino Linotype";
+
 }
 
 .new-room-form input:focus {
@@ -144,14 +143,14 @@ html, body {
 }
 
 .message .message-username {
-    font-size: 11px;
+    font-size: 15px;
     color: var(--main-text-color);
     opacity: 0.9;
     margin-bottom: 6px;
 }
 .message .message-text {
     background: var(--main-color);
-    color: var(--secondary-color);
+    color: white;;
     display: inline;
     padding: 4px 8px;
     border-radius: 8px;
@@ -160,10 +159,11 @@ html, body {
 .message-list {
     box-sizing: border-box;
     padding-left: 6px;
-    width: 100%;
-    height: 100%;
+    width: 900px;
+    height: 600px;
     overflow: scroll;
     background:rgba(100,100,100,0.6);
+    font-family: "Palatino Linotype";
 }
 
 .message-list .join-room {
@@ -173,6 +173,7 @@ html, body {
     height: 100%;
     font-size: 34px;
     font-weight: 300;
+    color: white;
 }
 
 .send-message-form {
@@ -188,11 +189,12 @@ html, body {
     border-style: none;
     background: var(--send-message-form);
     font-weight: 200;
-
+    font-family: "Palatino Linotype";
 }
 
 .send-message-form input:focus {
     outline-width: 0;
+    color: var(--main-text-color);
 }
 
 .send-message-form input::placeholder {
@@ -205,31 +207,46 @@ html, body {
     position: absolute;
     top: 10px;
 }
+
 .login-page{
-    width: 360px;
-    padding: 10% 0 0;
-    margin: auto;
+    font-family: "Palatino Linotype";
 }
+
 .form{
-position: relative;
-z-index: 1;
-background:rgba(100,100,100,0.5);
-max-width: 360px;
-margin: 0 auto 100px;
-padding: 45px;
+margin:0;
+padding:0;
 text-align: center;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translateX(-50%) translateY(-50%);
+background:rgba(100,100,100,0.5);
 }
+
 .form input{
-    font-family: "Roboto", sans-serif;
+    font-family: "Palatino Linotype";
     outline: 1;
     background: #f2f2f2;
-    font-weight: bold;
-    width:70%;
+    /*font-weight: bold;*/
+    width:80%;
     border: 0;
-    margin: 0 0 15px;
-    padding: 20px;
+    margin: 10px 10px 20px;
+    padding: 8px;
     box-sizing: border-box;
-    font-size: 22px;
+    font-size: 15px;
+}
+
+.login-page h1{
+    background-color: #010101;
+    padding: 10px;
+    text-align: left;
+    font-size: 25px;
+    color: white;
+}
+
+.login-page h2{
+    font-size: 25px;
+    color: white;
 }
 
 .whosOnlineListContainer{
