@@ -1,0 +1,36 @@
+{
+  "name": "soen341-notslack-project",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@pusher/chatkit-client": "^1.13.1",
+    "@pusher/chatkit-server": "^2.1.1",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.1.1"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1",
+    "sonarqube-scanner": "^2.5.0"
+  },
+  "scripts": {
+    "start": "concurrently \"node ./server.js\" \"react-scripts start\"",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "description": "[![Star on GitHub][github-star-badge]][github-star]",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/denizakcal/SOEN341_Project.git"
+  },
+  "author": "awesome soen341 team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/denizakcal/SOEN341_Project/issues"
+  },
+  "homepage": "https://github.com/denizakcal/SOEN341_Project#readme"
+}
