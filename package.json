@@ -13,13 +13,16 @@
   },
   "devDependencies": {
     "concurrently": "^3.5.1",
+    "jasmine": "^3.5.0",
     "sonarqube-scanner": "^2.5.0"
   },
   "scripts": {
     "start": "concurrently \"node ./server.js\" \"react-scripts start\"",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "jasmine-test-init": "./node_modules/jasmine/bin/jasmine.js init",
+    "jasmine-test": "./node_modules/jasmine/bin/jasmine.js"
   },
   "description": "[![Star on GitHub][github-star-badge]][github-star]",
   "main": "server.js",
