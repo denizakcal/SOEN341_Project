@@ -1,6 +1,7 @@
-import React from 'react'
+//import React from 'react'
+const React = require('react');
 
-function Message(props) {  
+var Message = function Message(props) {  
     return (
         <div className="message">
             <div className="message-username">{props.username}</div>
@@ -9,4 +10,4 @@ function Message(props) {
     )
 }
 
-export default Message
+module.exports = Message;

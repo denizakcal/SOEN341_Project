@@ -12,8 +12,10 @@
     "react-scripts": "1.1.1"
   },
   "devDependencies": {
+    "@testing-library/react": "^9.3.2",
     "concurrently": "^3.5.1",
     "jasmine": "^3.5.0",
+    "jest": "^24.9.0",
     "sonarqube-scanner": "^2.5.0"
   },
   "scripts": {
@@ -22,7 +24,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "jasmine-test-init": "./node_modules/jasmine/bin/jasmine.js init",
-    "jasmine-test": "./node_modules/jasmine/bin/jasmine.js"
+    "jasmine-test": "./node_modules/jasmine/bin/jasmine.js",
+    "jest-test": "jest"
   },
   "description": "[![Star on GitHub][github-star-badge]][github-star]",
   "main": "server.js",
