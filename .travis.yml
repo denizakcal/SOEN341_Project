@@ -17,6 +17,5 @@ before_install:
 - npm install --save-dev @testing-library/react
 
 script:
-- npm run jest-test-init
 - npm run jest-test
 - sonar-scanner -X
