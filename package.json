@@ -25,6 +25,7 @@
     "eject": "react-scripts eject",
     "jasmine-test-init": "./node_modules/jasmine/bin/jasmine.js init",
     "jasmine-test": "./node_modules/jasmine/bin/jasmine.js",
+    "jest-test-init": "jest --init",
     "jest-test": "jest"
   },
   "description": "[![Star on GitHub][github-star-badge]][github-star]",
