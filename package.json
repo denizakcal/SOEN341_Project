@@ -14,8 +14,11 @@
   "devDependencies": {
     "@testing-library/react": "^9.3.2",
     "concurrently": "^3.5.1",
-    "jasmine": "^3.5.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
     "jest": "^24.9.0",
+    "jest-cli": "^24.9.0",
+    "jest-enzyme": "^7.1.2",
     "sonarqube-scanner": "^2.5.0"
   },
   "scripts": {
